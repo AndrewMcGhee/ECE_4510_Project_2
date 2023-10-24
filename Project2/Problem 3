@@ -1,0 +1,33 @@
+import cv2
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+refImg = cv2.imread('/Users/georgetrupiano/Downloads/cycle1.jpeg') # Actual Image
+newImg = cv2.imread('/Users/georgetrupiano/Downloads/cycle2.jpeg') # Query Image
+
+refImg = cv2.cvtColor(refImg,cv2.COLOR_RGB2BGR)
+newImg = cv2.cvtColor(newImg,cv2.COLOR_RGB2BGR)
+
+refImg = cv2.cvtColor(refImg,cv2.COLOR_BGR2GRAY)
+newImg = cv2.cvtColor(newImg,cv2.COLOR_BGR2GRAY)
+
+orb = cv2.ORB_create()
+
+refKeyP, refDes = orb.detectAndCompute(refImg,None)
+
+newKeyP, newDes = orb.detectAndCompute(newImg,None)
+
+bf = cv2.BFMatcher_create(cv2.NORM_HAMMING,crossCheck=True)
+
+matches = bf.match(refDes,newDes)
+
+single_match = matches[0]
+single_match.distance
+
+matches = sorted(matches,key=lambda x:x.distance)
+
+orbMatch = cv2.drawMatches(refImg,refKeyP,newImg,newKeyP,matches[:480],None,flags = 2)
+
+plt.imshow(orbMatch)
+plt.show()
