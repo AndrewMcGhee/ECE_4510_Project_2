@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-refImg = cv2.imread('/Users/georgetrupiano/Downloads/cycle1.jpeg') # Actual Image
-newImg = cv2.imread('/Users/georgetrupiano/Downloads/cycle2.jpeg') # Query Image
+refImg = cv2.imread('cycle1.jpeg') # Actual Image
+newImg = cv2.imread('cycle2.jpeg') # Query Image
 
 refImg = cv2.cvtColor(refImg,cv2.COLOR_RGB2BGR)
 newImg = cv2.cvtColor(newImg,cv2.COLOR_RGB2BGR)

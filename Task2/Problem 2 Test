@@ -30,7 +30,7 @@ cv2.createTrackbar("Gauss Kernal: ", "Parts", 0, 21, null)
 while True:
 
 # Castle Image
-    castle = cv2.imread('/Users/georgetrupiano/Downloads/castle_small.tif')
+    castle = cv2.imread('castle_small.tif')
 
     castleCannyTh1 = cv2.getTrackbarPos('Canny T1: ', 'Castle')
 
@@ -52,13 +52,13 @@ while True:
 
     cv2.imshow('Castle', castleEdges)
 
-    cv2.imwrite('/Users/georgetrupiano/Downloads/Edges_Castle.jpg', castleEdges)
+    cv2.imwrite('Edges_Castle.jpg', castleEdges)
 
 
 
 # Blocks Image
 
-    blocks = cv2.imread('/Users/georgetrupiano/Downloads/Blocks.jpg')
+    blocks = cv2.imread('Blocks.jpg')
 
     blockCannyTh1 = cv2.getTrackbarPos('Canny T1: ', 'Blocks')
 
@@ -80,13 +80,13 @@ while True:
 
     cv2.imshow('Blocks', blockEdges)
 
-    cv2.imwrite('/Users/georgetrupiano/Downloads/Edges_Blocks.jpg', blockEdges)
+    cv2.imwrite('Edges_Blocks.jpg', blockEdges)
 
           
               
 # Parts Image
 
-    parts = cv2.imread('/Users/georgetrupiano/Downloads/Parts.jpg')
+    parts = cv2.imread('Parts.jpg')
 
     partsCannyTh1 = cv2.getTrackbarPos('Canny T1: ', 'Parts')
 
@@ -108,7 +108,7 @@ while True:
 
     cv2.imshow('Parts', partEdges)
 
-    cv2.imwrite('/Users/georgetrupiano/Downloads/Edges_Parts.jpg', partEdges)
+    cv2.imwrite('Edges_Parts.jpg', partEdges)
 
     key = cv2.waitKey(27)
     if key == 27: # exit on ESC (27 is ASCII for ESC)
